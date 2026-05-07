@@ -9,7 +9,7 @@
 # Çalıştırmak için:
 #   chmod +x deploy-gcloud.sh
 #   ./deploy-gcloud.sh
-# Sadece build + push (Cloud Run yok):
+# Sadece build + push (Cloud Run yok; imajı sonra GCE VM'de pull ile çalıştırmak için):
 #   SKIP_DEPLOY=1 ./deploy-gcloud.sh
 # ============================================================
 
@@ -110,7 +110,7 @@ gcloud auth configure-docker "$REGION-docker.pkg.dev" --quiet
 echo ""
 echo -e "${CYAN}=== 7. Docker image build ediliyor (10-15 dakika sürebilir) ===${NC}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-docker build --target runtime -t "$FULL_IMAGE" "$SCRIPT_DIR"
+docker build --platform linux/amd64 --target runtime -t "$FULL_IMAGE" "$SCRIPT_DIR"
 echo -e "${GREEN}Build tamamlandı.${NC}"
 
 # ── 8. Image push et ─────────────────────────────────────────

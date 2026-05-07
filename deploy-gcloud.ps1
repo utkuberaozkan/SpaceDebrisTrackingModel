@@ -16,7 +16,7 @@ param(
 
 # ── YAPILANDIRMA (değiştir) ──────────────────────────────────
 $PROJECT_ID    = ""                        # BURAYA: gcloud projects list ile bul
-$REGION        = "us-central1"               # Iowa (Free Tier için en uygun)
+$REGION        = "us-central1-a"               # Iowa (Free Tier için en uygun)
 $SERVICE_NAME  = "yorunge-muhafizi"
 $IMAGE_NAME    = "yorunge-muhafizi"
 $IMAGE_TAG     = "latest"

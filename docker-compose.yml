@@ -1,6 +1,9 @@
 # GCE VM / yerel: Next+Python tek imaj
-#   docker compose up --build -d
+#   docker-compose up --build -d
 # Arayüz: http://localhost:3000  (konteyner 8080, eşleme 3000:8080)
+#
+# Artifact Registry'den çekip çalıştırmak (VM'de build yok): önce deploy-gcloud.sh ile push,
+# sonra bu dosyada build: satırlarını kaldırıp image: REGION-docker.pkg.dev/PROJECT/.../yorunge-muhafizi:latest yaz.
 services:
   yorunge:
     build:
